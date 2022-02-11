@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="form-group">
+
+            <!-- implemented as a select menu whose name is symbol (from cs50 website) -->
+            <!-- we need a for loop here so we use jinja syntax  -->
+             <!-- use symbol["symbol"] because in a list we have dictionaries with keys and values.-->
+            <!-- here we hame a key called 'symbol' and a value for that ( for example NFLX or AAPL ) and we want to show just value. -->
+
+            <select name="symbol">
+                {% for symbol in symbols %}
+                    <option> {{ symbol["symbol"] }} </option>
+                {% endfor %}
+            </select>
+
+        </div>
+        <div class="form-group">
+
+            <!-- Require that a user input a number of shares, implemented as a field whose name is shares.(from cs50 website) -->
+
+            <input class="form-control" name="shares" placeholder="shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">sell</button>
+    </form>
+{% endblock %}

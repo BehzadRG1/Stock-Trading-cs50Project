@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    history
+{% endblock %}
+
+{% block main %}
+
+<!-- this class from bootstrap. with that we don't need css codes. -->
+
+    <table class="table table-striped table-dark">
+
+        <thead>
+            <tr>
+
+                <th>symbol</th>
+                <th>shares</th>
+                <th>price</th>
+                <th>type</th>
+                <th>time</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <!-- use jinja here because we need a for loop-->
+            <!-- also use jinja to get values from our data base and add them here-->
+            {% for item in items %}
+
+            <tr>
+                <td> {{ item["symbol"] }} </td>
+                <td> {{ item["shares"] }} </td>
+                <td> {{ usd(item["price"]) }} </td>
+                <td> {{ item["type"] }} </td>
+                <td> {{ item["time"] }} </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+{% endblock %}

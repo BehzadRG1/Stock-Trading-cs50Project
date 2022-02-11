@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quoted
+{% endblock %}
+
+{% block main %}
+
+<!-- use {{ inputSymbol.name }} method for filled that whith any symbol name value ( and also for price ) -->
+<!-- use usd function for show the formated price-->
+
+
+    <p>A {{ inputSymbol.name }} stock value is {{ usd(inputSymbol.price) }}.</p>
+{% endblock %}
